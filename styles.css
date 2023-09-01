@@ -369,6 +369,10 @@
         --colors: ;
     }
 
+    footer a {
+        color: rgb(0, 100, 194);
+    }
+
     body {
         background-color: rgb(48 48 48);
         color: whitesmoke;
