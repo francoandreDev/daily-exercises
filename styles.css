@@ -11,9 +11,12 @@
         color-scheme: dark light;
         max-width: 100vw;
         min-height: 100vh;
-        padding: 2rem;
         padding-bottom: 7rem;
         position: relative;
+    }
+
+    div.bg {
+        padding: 2rem;
     }
 
     ul,
@@ -88,7 +91,7 @@
 
     footer {
         position: absolute;
-        bottom: 0;
+        bottom: 0.8rem;
         left: 50%;
         translate: -50% -50%;
         display: flex;
@@ -233,17 +236,22 @@
         gap: 1rem;
     }
 
+    h1 {
+        margin-bottom: 2rem;
+    }
+
     main {
         display: flex;
         flex-direction: column;
-        gap: 5rem;
+        padding: 1rem 0;
     }
 
-    main > .figures {
+    main .figures {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: center;
+        padding: 2rem;
     }
 
     .card {
@@ -359,6 +367,19 @@
 @layer colors {
     :root {
         --colors: ;
+    }
+
+    body {
+        background-color: rgb(48 48 48);
+        color: whitesmoke;
+    }
+
+    main div.bg:nth-child(2n) {
+        background-color: rgb(69 69 69);
+    }
+
+    main div.bg:nth-child(2n + 1) {
+        background-color: rgb(48 48 48);
     }
 
     header > input#burger + div.burger-icon {
