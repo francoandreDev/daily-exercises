@@ -12,6 +12,7 @@
         max-width: 100vw;
         min-height: 100vh;
         padding: 2rem;
+        padding-bottom: 7rem;
         position: relative;
     }
 
@@ -92,6 +93,16 @@
         translate: -50% -50%;
         display: flex;
         flex-wrap: wrap;
+        padding: 0.1rem 0;
+    }
+
+    body {
+        scrollbar-width: none; /*Firefox*/
+    }
+
+    /*Webkit(Chrome, Android browser, Safari, Edge...)*/
+    body::-webkit-scrollbar {
+        width: 0;
     }
 }
 
@@ -124,6 +135,10 @@
 
     header > input#burger ~ aside > nav > ul a {
         font-size: 1.5rem;
+    }
+
+    p::first-letter {
+        text-transform: capitalize;
     }
 }
 
@@ -235,19 +250,41 @@
         aspect-ratio: 0.7/1;
         padding: 1rem;
         border-radius: 15px;
-        width: 200px;
+        width: 250px;
         position: relative;
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
         justify-items: center;
         align-items: center;
+        transition: height 1s ease both;
     }
 
     .card p {
-        justify-self: flex-end;
         text-wrap: balance;
         text-align: center;
+    }
+
+    .truncate-text {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        position: relative;
+        transition: height 1s ease both;
+    }
+
+    .truncate-text > input[type="checkbox"] {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+    }
+
+    .truncate-text:has(input[type="checkbox"]:checked) {
+        overflow: initial;
+        display: block;
     }
 
     .space-figure {
@@ -296,7 +333,7 @@
     .triangle::after {
         content: "";
         position: absolute;
-        top: -43px;
+        top: -56px;
         left: 0;
         width: 100%;
         height: 1px;
@@ -455,6 +492,25 @@
         }
         to {
             transform: rotateY("180deg");
+        }
+    }
+
+    .float-effect {
+        animation: float-animation 1s ease infinite attr(delay-animation);
+        position: relative;
+    }
+
+    @keyframes float-animation {
+        25% {
+            top: -20px;
+        }
+        from,
+        50%,
+        to {
+            top: 0;
+        }
+        75% {
+            top: 20px;
         }
     }
 }
