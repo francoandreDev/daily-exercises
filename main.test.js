@@ -1,45 +1,7 @@
 import { describe, expect, test } from 'vitest'
+import { Timer, maxTimer } from './main'
 
-function sum(a, b) {
-    return a + b
-}
-
-describe("Test are function and running now", () => {
-    test('adds 1 + 2 to equal 3', () => {
-        expect(sum(1, 2)).toBe(3)
-    })
-})
-
-class Timer {
-    #time;
-    #adding;
-    #limit;
-    constructor(limit) {
-        this.#time = 0
-        this.#limit = limit
-        this.#adding = 0
-    }
-
-    setCurrentLimit(limit) {
-        this.#limit = limit
-    }
-
-    getCurrentTime() {
-        return this.#time
-    }
-
-    increment(amount = 1) {
-        (this.#time + amount >= this.#limit) ? this.addition(amount) :
-            this.#time += amount
-    }
-
-    addition(amount) {
-        this.#time = this.#limit % amount - 1
-        this.#adding += this.limit / amount - 1
-    }
-}
-
-const maxTimer = { seconds: 60, minutes: 60, hours: 24 }
+//? testing class-timer && object maxTimer
 
 describe("Class Timer", () => {
     test('Seconds', () => {
